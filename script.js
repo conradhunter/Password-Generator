@@ -98,6 +98,10 @@ function detectPasswordRequirements() {
   }
 }
 
+function regeneratePassword() {
+  detectPasswordRequirements()
+}
+
 function clearGenerator() {
   location.reload();
   console.log("cleared");
