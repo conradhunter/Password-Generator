@@ -109,3 +109,8 @@ button {
   display: flex;
   align-items: center;
 }
+
+#result-para {
+  word-break: break-all;
+  max-width: 80%;
+}
