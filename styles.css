@@ -94,7 +94,7 @@ button {
   width: 500px;
   height: 100px;
   padding: 20px 30px;
-  justify-content: space-between;
+  justify-content: flex-start;
   margin-top: 30px;
   margin-bottom: 30px;
   border-radius: 5px;
@@ -114,3 +114,5 @@ button {
   word-break: break-all;
   max-width: 80%;
 }
+
+

@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Password Generator</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
     <script
       src="https://kit.fontawesome.com/cce1f5175d.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
   </head>
   <body>
     <div class="generator__container">
@@ -38,11 +40,6 @@
             <h1 id="result-heading">Result:</h1>
             <p id="result-para"></p>
         </div>
-          <div class="result-buttons">
-            <button onclick="{copyToClipboard()}" class="result__btn">
-              <i class="fa-solid fa-copy"></i>
-            </button>
-          </div>
         </div>
         <div class="buttons__wrapper">
           <button onclick="{detectPasswordRequirements()}" class="generate">
@@ -55,7 +52,8 @@
         </div>
       </div>
     </div>
-
     <script src="script.js"></script>
   </body>
 </html>
+
+
