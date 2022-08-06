@@ -13,12 +13,16 @@ body {
   margin-top: 100px;
 }
 
+#heading {
+  text-align: center;
+}
 
 .generator__container {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 i {
@@ -91,13 +95,15 @@ button {
   border: 2px solid;
   display: flex;
   align-items: center;
-  width: 500px;
+  max-width: 80%;
+  width: 100%;
   height: 100px;
   padding: 20px 30px;
   justify-content: flex-start;
   margin-top: 30px;
   margin-bottom: 30px;
   border-radius: 5px;
+  margin: 30px 10%;
 }
 
 #result-heading {
@@ -115,4 +121,7 @@ button {
   max-width: 80%;
 }
 
+.row {
+  margin: 0 20%;
+}
 
