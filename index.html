@@ -1,56 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Password Generator</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/cce1f5175d.js" crossorigin="anonymous"></script>
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://kit.fontawesome.com/cce1f5175d.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
     <div class="generator__container">
-        <h1>Generate your password here!</h1>
-        <div class="data__input-fields">
-            <div class="input__wrapper">
-                <label for="">Number of characters:</label>
-                <input type="number" min="1" max="50" name="" id="numberInput">
-            </div>
-            <div class="input__wrapper">
-                <label for="">Contain symbols?</label>
-                <input type="checkbox" name="" class="checkbox" id="symbols"> 
-            </div>
-            <div class="input__wrapper">
-                <label for="">Include uppercase?</label>
-                <input type="checkbox" name="" class="checkbox" id="uppercase">
-            </div>
-            <div class="input__wrapper">
-                <label for="">Include lowercase?</label>
-                <input type="checkbox" name="" class="checkbox" id="lowercase">
-            </div>
-            <div class="input__wrapper">
-                <label for="">Include numbers?</label>
-                <input type="checkbox" name="" class="checkbox" id="numbers">
-            </div>
+      <h1>Generate your password here!</h1>
+      <div class="data__input-fields">
+        <div class="input__wrapper">
+          <label for="">Number of characters:</label>
+          <input type="number" min="1" max="50" name="" id="numberInput" />
         </div>
-        <div class="result__container">
-            <h1 id="result">Result:</h1>
-            <div class="buttons__wrapper">
-                <button onclick={generatePassword()} class="generate">
-                    Generate
-                </button>
-                <button onclick={areBoxesChecked()} class="result__btn">
-                    <i class="fa-solid fa-copy"></i>
-                </button>
-                <button class="result__btn">
-                    <i class="fa-solid fa-arrows-rotate"></i>
-                </button>
-            </div>
+        <div class="input__wrapper">
+          <label for="">Include uppercase?</label>
+          <input type="checkbox" name="" class="checkbox" id="uppercase" />
         </div>
+        <div class="input__wrapper">
+          <label for="">Include numbers?</label>
+          <input type="checkbox" name="" class="checkbox" id="numbers" />
+        </div>
+        <div class="input__wrapper">
+          <label for="">Contain symbols?</label>
+          <input type="checkbox" name="" class="checkbox" id="symbols" />
+        </div>
+      </div>
+      <div class="result__container">
+        <div id="result-wrapper">
+        <div class="result-content">
+            <h1 id="result-heading">Result:</h1>
+            <p id="result-para"></p>
+        </div>
+          <div class="result-buttons">
+            <button onclick="{checkPasswordLength()}" class="result__btn">
+              <i class="fa-solid fa-copy"></i>
+            </button>
+            <button class="result__btn">
+              <i class="fa-solid fa-arrows-rotate"></i>
+            </button>
+          </div>
+        </div>
+        <div class="buttons__wrapper">
+          <button onclick="{detectPasswordRequirements()}" class="generate">
+            Generate
+          </button>
+
+          <button onclick="{clearGenerator()}" class="generate">
+            Reset
+          </button>
+        </div>
+      </div>
     </div>
 
-
-
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

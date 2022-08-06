@@ -1,10 +1,9 @@
 const setNumberOfCharacters = document.getElementById("numberInput");
 const includeUppercase = document.getElementById("uppercase");
-const includeLowercase = document.getElementById("lowercase");
 const includeSymbols = document.getElementById("symbols");
 const includeNumbers = document.getElementById("numbers");
 
-const resultHeading = document.getElementById("result");
+const resultPara = document.getElementById("result-para");
 
 // character variables for random generation
 const lowercaseLetters = "abcdefghijklmnopqrstuvwyxz";
@@ -12,42 +11,94 @@ const uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWYXZ";
 const numbers = "1234567890";
 const symbols = "!@#$%&*?";
 const characters = lowercaseLetters + uppercaseLetters + numbers + symbols; //length = 70;
+const allLetters = lowercaseLetters + uppercaseLetters;
+const lettersAndSymbols = allLetters + symbols;
+const lettersAndNumbers = allLetters + numbers;
+const symbolsAndNumbers = symbols + numbers;
 
-let passwordLength = setNumberOfCharacters.value;
+let password = lowercaseLetters;
 
-function areBoxesChecked() {
-  if (includeUppercase.checked) {
-    let randomUppercase =
-      uppercaseLetters[Math.floor(uppercaseLetters.length * Math.random())];
-    console.log(randomUppercase);
-  }
-
-  if (includeLowercase.checked) {
-    let randomLowercase =
-      lowercaseLetters[Math.floor(lowercaseLetters.length * Math.random())];
-    console.log(randomLowercase);
-  }
-
-  if (includeSymbols.checked) {
-    let randomSymbol = symbols[Math.floor(symbols.length * Math.random())];
-    console.log(randomSymbol);
-  }
-
-  if (includeNumbers.checked) {
-    let randomNumber = numbers[Math.floor(numbers.length * Math.random())];
-    console.log(randomNumber);
+function detectPasswordRequirements() {
+  if (
+    includeUppercase.checked &&
+    includeNumbers.checked &&
+    includeSymbols.checked
+  ) {
+    password = password + uppercaseLetters + numbers + symbols;
+    resultPara.innerText = password
+      .split("")
+      .sort(function () {
+        return 0.5 - Math.random();
+      })
+      .slice(0, setNumberOfCharacters.value)
+      .join("");
+  } else if (includeUppercase.checked && includeNumbers.checked) {
+    password = password + uppercaseLetters + numbers;
+    resultPara.innerText = password
+      .split("")
+      .sort(function () {
+        return 0.5 - Math.random();
+      })
+      .slice(0, setNumberOfCharacters.value)
+      .join("");
+  } else if (includeUppercase.checked && includeSymbols.checked) {
+    password = password + uppercaseLetters + symbols;
+    resultPara.innerText = password
+      .split("")
+      .sort(function () {
+        return 0.5 - Math.random();
+      })
+      .slice(0, setNumberOfCharacters.value)
+      .join("");
+  } else if (includeUppercase.checked) {
+    password = password + uppercaseLetters;
+    resultPara.innerText = password
+      .split("")
+      .sort(function () {
+        return 0.5 - Math.random();
+      })
+      .slice(0, setNumberOfCharacters.value)
+      .join("");
+  } else if (includeNumbers.checked && includeSymbols.checked) {
+    password = password + numbers + symbols;
+    resultPara.innerText = password
+      .split("")
+      .sort(function () {
+        return 0.5 - Math.random();
+      })
+      .slice(0, setNumberOfCharacters.value)
+      .join("");
+  } else if (includeNumbers.checked) {
+    password = password + numbers;
+    resultPara.innerText = password
+      .split("")
+      .sort(function () {
+        return 0.5 - Math.random();
+      })
+      .slice(0, setNumberOfCharacters.value)
+      .join("");
+  } else if (includeSymbols.checked) {
+    password = password + symbols;
+    resultPara.innerText = password
+      .split("")
+      .sort(function () {
+        return 0.5 - Math.random();
+      })
+      .slice(0, setNumberOfCharacters.value)
+      .join("");
+  } else {
+    password = password;
+    resultPara.innerText = password
+      .split("")
+      .sort(function () {
+        return 0.5 - Math.random();
+      })
+      .slice(0, setNumberOfCharacters.value)
+      .join("");
   }
 }
 
-function generatePassword() {
-  resultHeading.innerHTML = shuffledCharacters;
+function clearGenerator() {
+  location.reload();
+  console.log("cleared");
 }
-
-const shuffledCharacters = characters
-  .split("")
-  .sort(function () {
-    return 0.5 - Math.random();
-  })
-  .slice(0, passwordLength)
-  .join("");
-console.log(shuffledCharacters);
